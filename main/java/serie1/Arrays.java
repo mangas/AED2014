@@ -42,8 +42,43 @@ public class Arrays {
         }
     }
 
+    private static int countEqualsNlogN (int[] v1, int l1, int r1, int[] v2, int l2, int r2) {
+
+        if (l1>r1) return 0;
+        if (l2>r2) return 0;
+
+        if (l1==r1 && l2==r2)
+            return 0;
+
+        if (l1==r1) {
+            if (v1[l1]<v2[l2])
+                return 0;
+        } else if (l2==r2) {
+            if (v1[l1]>v2[l2])
+                return 0;
+        }
+
+        if (v1[l1] < v2[l2]) {
+            l1 = incIfPossible(l1, r1);
+                return countEqualsNlogN(v1, l1, r1, v2, l2, r2);
+        }
+
+        if (v1[l1] > v2[l2]) {
+            l2 = incIfPossible(l2, r2);
+            return countEqualsNlogN(v1, l1, r1, v2, l2, r2);
+        }
+
+        l1=incIfPossible(l1,r1);
+        l2=incIfPossible(l2,r2);
+        return 1+countEqualsNlogN(v1, l1, r1, v2, l2, r2);
+    }
+
+
 	public static int countEquals(int[] v1, int l1, int r1, int[] v2, int l2, int r2){
-        return countEqualsOn1n2(v1,l1,r1,v2, l2, r2);
+        //return countEqualsOn1n2(v1,l1,r1,v2, l2, r2);
+        return countEqualsNlogN(v1,l1,r1,v2, l2, r2);
+
+
 
 	}
 	
