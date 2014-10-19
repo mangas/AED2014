@@ -115,9 +115,73 @@ public class Arrays {
         //return countEqualsOn1n2Recur(v1, l1, r1, v2, l2, r2);
         return countEqualsDivideAndConquer(v1, l1, r1, v2, l2, r2);
 	}
-	
-	public static int hIndex(int[] v){
-		throw new UnsupportedOperationException();
+
+
+    private static void quicksort(int n[], int low, int high) {
+
+        int i = low, j = high;
+        // Get the pivot element from the middle of the list
+        int pivot = n[low + (high-low)/2];
+
+        // Divide into two lists
+        while (i <= j) {
+            // If the current value from the left list is smaller then the pivot
+            // element then get the next element from the left list
+            while (n[i] < pivot) {
+                i++;
+            }
+            // If the current value from the right list is larger then the pivot
+            // element then get the next element from the right list
+            while (n[j] > pivot) {
+                j--;
+            }
+
+            // If we have found a values in the left list which is larger then
+            // the pivot element and if we have found a value in the right list
+            // which is smaller then the pivot element then we exchange the
+            // values.
+            // As we are done we can increase i and j
+            if (i <= j) {
+                exchange(n,i, j);
+                i++;
+                j--;
+            }
+        }
+
+        if (low<j)
+            quicksort(n,low,j);
+        if (i<high)
+            quicksort(n,i,high);
+
+    }
+
+    private static void exchange(int[] n,int i, int j) {
+        int aux= n[i];
+        n[i]=n[j];
+        n[j]=aux;
+
+    }
+
+    private static int hIndexQuickSort( int[] v) {
+        if (v == null || v.length==0)
+            return -1;
+
+        if (v.length==1)
+            return (v[0]==0)?-1:1;
+
+
+        quicksort(v,0,v.length-1);
+
+        int elementsLeft = v.length;
+
+        for (int i=0;v[i]<elementsLeft;i++,elementsLeft--);
+
+        return elementsLeft;
+
+    }
+
+    public static int hIndex(int[] v){
+        return hIndexQuickSort(v);
 	}
 
 	
