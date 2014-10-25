@@ -189,8 +189,63 @@ public class Arrays {
         return hIndexQuickSort(v);
 	}
 
-	
-	public static int deleteMin(int[] maxHeap, int sizeHeap){throw new UnsupportedOperationException();}
+    public static int left(int i) {
+        return 2 * i + 1;
+    }
+
+    public static int right(int i) {
+        return 2 * i + 2;
+    }
+
+    public static void maxHeapify(int[] h, int i, int n) {
+
+        int l = left(i);
+        int r = right(i);
+        int largest;
+        if (l < n && h[l] > h[i])
+            largest = l;
+        else largest = i;
+        if (r < n && h[r] > h[largest])
+            largest = r;
+        if (largest != i) {
+            exchange(h, i, largest);
+            maxHeapify(h, largest+1, n);
+        }
+    }
+
+    public static int parent(int i) {
+        return (i - 1) / 2;
+    }
+
+    public static int deleteMin(int[] maxHeap, int sizeHeap) {
+
+        if (maxHeap==null || sizeHeap<1)
+            return sizeHeap;
+
+        int menor = sizeHeap/2;
+
+        for (int i=sizeHeap/2;i<sizeHeap;i++)
+            if (maxHeap[menor]>maxHeap[i] )
+                menor=i;
+
+        if (menor!=sizeHeap-1)
+            //exchange(maxHeap,menor,sizeHeap-1);
+            maxHeap[menor]=maxHeap[sizeHeap-1];
+
+
+        sizeHeap--;
+        //maxHeap = java.util.Arrays.copyOf(maxHeap,sizeHeap-1);
+
+        int parent=menor;
+
+        do {
+            parent=parent(parent);
+            maxHeapify(maxHeap, parent, sizeHeap -1);
+        } while (parent!=0);
+
+
+        return sizeHeap;
+    }
 
     private static void quicksort(String n[], int field, int low, int high) {
 
