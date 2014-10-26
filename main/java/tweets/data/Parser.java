@@ -1,6 +1,8 @@
 package tweets.data;
 
 import tweets.backend.FileLoader;
+import tweets.model.HashTags;
+import tweets.model.Tweet;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -9,6 +11,8 @@ import java.util.HashMap;
 /**
  * Created by fa on 26/10/14.
  */
+
+
 public class Parser {
 
     private String filename;
@@ -36,7 +40,29 @@ public class Parser {
 
     }
 
-    public Object parseOne() {
+    public Tweet parseTweet() {
+
+        if (!(this.parser instanceof TweetParser))
+            return null;
+
+        return (Tweet) parseOne();
+    }
+
+    public HashTags parseHashTag() {
+
+        if (!(this.parser instanceof HashTagParser))
+            return null;
+
+        ArrayList<String> tags = new ArrayList<String>();
+
+        String line = null;
+        while ((line= (String) parseOne())!=null)
+            tags.add(line);
+
+        return (HashTags) new HashTags((String[]) tags.toArray());
+    }
+
+    private Object parseOne() {
 
         String line = fl.nextLine();
 
