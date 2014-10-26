@@ -10,7 +10,7 @@ public class Tweets {
 
     public static void main(String[] args) {
     	
-    	CommandLine.cli();
+    	CommandLine.cli(args[1]);
     	
 
     }

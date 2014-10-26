@@ -1,30 +1,51 @@
 package tweets.business;
 
+import java.io.FileNotFoundException;
+
+import tweets.backend.FileLoader;
+
 /**
  * Created by fa on 26/10/14.
  */
 public class App {
 	
-	public static void funcionalidade1(String hf){
+	private FileLoader hashTagsFile;
+	private FileLoader tweetsFile;
+	
+	public void funcionalidade1(String hashtagfile){		
 		
-		System.out.println(hf);
+		try {
+			hashTagsFile = new FileLoader(hashtagfile);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();		
+		}
+		
+		
 	}
 	
-	public static void funcionalidade2(int n, long initDate, long endDate, String hf){
+	public void funcionalidade2(int n, long initDate, long endDate, String hf){
 		
 		System.out.println("f2 "+ n +" " + initDate +" "+ endDate +" "+ hf);
 		
 	}
 	
-	public static void funcionalidade3(int k, long date){
+	public void funcionalidade3(int k, long date){
 		System.out.println("f3 "+ k+" " + date);
 		
 	}
 	
-	public static void funcionalidade4(int n, long date, String hf){
+	public void funcionalidade4(int n, long date, String hf){
 		System.out.println("f4 "+ n+" " + date+" " + hf);	
 	}
 	
-	
+	public App(String twFile){		
+		try {
+			hashTagsFile = new FileLoader(twFile);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 }

@@ -14,6 +14,8 @@ public class CommandLine {
 	public static final int ONE_ARGUMENT = 1;
 	public static final int TWO_ARGUMENTS = 2;
 	
+	private static App app;
+	
 	
 	public static int wordCount(String s){
 	    if (s == null)return 0;
@@ -26,7 +28,10 @@ public class CommandLine {
 		return tmp[a];
 	}
 	
-	public static void cli(){
+	public static void cli(String twtFile){
+		
+		app = new App(twtFile);
+		
 		Scanner in = new Scanner(System.in);
 		String cmd;		
 		
@@ -43,9 +48,9 @@ public class CommandLine {
 						
 			case "moreMentioned": 					
 				if( wordCount(fullcmd) == ONE_ARGUMENT)
-					App.funcionalidade1(getArgument(fullcmd,1));
+					app.funcionalidade1(getArgument(fullcmd,1));
 				else					
-					App.funcionalidade2(
+					app.funcionalidade2(
 					Integer.parseInt(getArgument(fullcmd,1)),					
 					ConvertDate.getInstant(getArgument(fullcmd,2)),
 					ConvertDate.getInstant(getArgument(fullcmd,3)),
@@ -54,11 +59,11 @@ public class CommandLine {
 					
 			case "nearest":
 				if( wordCount(fullcmd) == TWO_ARGUMENTS)
-					App.funcionalidade3(
+					app.funcionalidade3(
 							Integer.parseInt(getArgument(fullcmd,1)),
 							ConvertDate.getInstant(getArgument(fullcmd,2)));
 				else					
-					App.funcionalidade4(
+					app.funcionalidade4(
 					Integer.parseInt(getArgument(fullcmd,1)),					
 					ConvertDate.getInstant(getArgument(fullcmd,2)),
 					getArgument(fullcmd,3));
