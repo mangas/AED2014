@@ -11,7 +11,7 @@ import tweets.model.Tweet;
  */
 public class Filter {
 	
-	String twt;
+	String twtFile;
 	//private Parser parsedObg = new Parser();
 	
 	
@@ -20,8 +20,8 @@ public class Filter {
 	/**
 	 * Construtor sem filtros
 	 */
-	public Filter(String twt){
-		this.twt=twt;
+	public Filter(String twtFile){
+		this.twtFile=twtFile;
 	}
 	
 	/**
@@ -31,16 +31,24 @@ public class Filter {
 		filterAL.add(f);
 	}
 	
-	public Tweet findSingle(){
-		Parser ps = new Parser(twt);
-		Tweet tw = ps.parseTweet();
-		Boolean hasAllHashTags = false;
-		for(int i=0; i<filterAL.size(); i++){	
-			if ( ! tw.hasHashtags(filterAL.get(i)) ) break;
-			hasAllHashTags = true;
-		}
-		if (hasAllHashTags) return tw;
+	public Tweet findOne(){
+		Parser ps = new Parser(twtFile);
+		Tweet tw;
+		while (true){
+			tw= findSingle(ps);
+			if (tw!= null)	return tw;
+			break;
+			}
 		return null;
+	}
+	
+	
+	private Tweet findSingle(Parser ps){
+		Tweet tw = ps.parseTweet();
+		for(int i=0; i<filterAL.size(); i++){	
+			if ( ! tw.hasHashtags(filterAL.get(i)) ) return null;
+		}
+		return tw;
 		
 	}
 
