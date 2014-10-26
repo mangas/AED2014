@@ -6,7 +6,7 @@ package tweets.model;
 public class Tweet {
 
     private long seconds;
-    private String[] hashtags;
+    private HashTags hashtags;
     private long uid;
     private long id;
 
@@ -18,11 +18,11 @@ public class Tweet {
         this.seconds = seconds;
     }
 
-    public String[] getHashtags() {
+    public HashTags getHashtags() {
         return hashtags;
     }
 
-    public void setHashtags(String[] hashtags) {
+    public void setHashtags(HashTags hashtags) {
         this.hashtags = hashtags;
     }
 
