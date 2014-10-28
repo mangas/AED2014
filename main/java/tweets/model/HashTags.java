@@ -28,4 +28,13 @@ public class HashTags {
         return found;
     }
 
+    public boolean equals(HashTags tags) {
+
+        for (String s : tags.getHashtags())
+            if (!contains(s))
+                return false;
+
+        return true;
+    }
+
 }

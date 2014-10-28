@@ -1,5 +1,6 @@
 package tweets.data;
 
+import tweets.model.HashTags;
 import tweets.model.Tweet;
 
 /**
@@ -7,25 +8,14 @@ import tweets.model.Tweet;
  */
 public class HashTagFilter extends AbstractFieldFilter {
 
-    private String[] hashtags;
+    private HashTags hashtags;
 
-    public HashTagFilter(String[] hashtags) {
+    public HashTagFilter(HashTags hashtags) {
         this.hashtags=hashtags;
     }
 
     @Override
     public boolean filter(Tweet t) {
-
-        for (int i=0;i<this.hashtags.length;i++) {
-            boolean found=false;
-
-            for (String s : t.getHashtags().getHashtags())
-                if (s.equalsIgnoreCase(hashtags[i]))
-                    found=true;
-
-            if (!found) return false;
-        }
-
-        return true;
+        return this.hashtags.equals(t.getHashtags());
     }
 }
