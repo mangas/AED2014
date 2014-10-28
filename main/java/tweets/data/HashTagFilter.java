@@ -19,7 +19,7 @@ public class HashTagFilter extends AbstractFieldFilter {
         for (int i=0;i<this.hashtags.length;i++) {
             boolean found=false;
 
-            for (String s : t.getHashtags())
+            for (String s : t.getHashtags().getHashtags())
                 if (s.equalsIgnoreCase(hashtags[i]))
                     found=true;
 
