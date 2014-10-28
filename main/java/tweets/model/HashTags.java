@@ -28,7 +28,7 @@ public class HashTags {
         return found;
     }
 
-    public boolean equals(HashTags tags) {
+    public boolean containsTags(HashTags tags) {
 
         for (String s : tags.getHashtags())
             if (!contains(s))

@@ -16,6 +16,6 @@ public class HashTagFilter extends AbstractFieldFilter {
 
     @Override
     public boolean filter(Tweet t) {
-        return this.hashtags.equals(t.getHashtags());
+        return this.hashtags.containsTags(t.getHashtags());
     }
 }
