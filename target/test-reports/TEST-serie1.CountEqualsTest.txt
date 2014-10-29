@@ -1,0 +1,8 @@
+Testsuite: serie1.CountEqualsTest
+Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.121 sec
+
+Testcase: countEquals_OnBothEmptyArrays took 0.017 sec
+Testcase: countEquals_OnAnArraysWithOneEqualElementInTheMiddle took 0 sec
+Testcase: countEquals_OnAnArraysWithOneEqualElementInTheFront took 0 sec
+Testcase: countEquals_OnAnArraysWithOneEqualElementInTheEnd took 0 sec
+Testcase: countEquals_OnAnArraysWithSomeEqualElements took 0 sec

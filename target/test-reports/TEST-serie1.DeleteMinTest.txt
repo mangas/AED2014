@@ -1,0 +1,23 @@
+Testsuite: serie1.DeleteMinTest
+Tests run: 6, Failures: 1, Errors: 0, Time elapsed: 0.101 sec
+------------- Standard Output ---------------
+0
+0
+0
+0
+0
+2
+0
+------------- ---------------- ---------------
+
+Testcase: deleteMinTest_onEmptyHeapAndEmptyArray took 0.011 sec
+Testcase: deleteMinTest_onEmptyHeap took 0.002 sec
+Testcase: deleteMinTest_onHeapWithOneElement took 0 sec
+Testcase: deleteMinTest_withMinOnLastElement took 0 sec
+Testcase: deleteMinTest_withMinNotInLastElement took 0.001 sec
+Testcase: deleteMinTest_withMoveElement took 0.005 sec
+	FAILED
+arrays first differed at element [2]; expected:<7> but was:<3>
+junit.framework.AssertionFailedError: arrays first differed at element [2]; expected:<7> but was:<3>
+	at serie1.DeleteMinTest.deleteMinTest_withMoveElement(DeleteMinTest.java)
+

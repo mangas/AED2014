@@ -1,0 +1,8 @@
+Testsuite: serie1.SortIPv4Test
+Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.464 sec
+
+Testcase: oneElement took 0.006 sec
+Testcase: twoRandomElements took 0.002 sec
+Testcase: threeRandomElements took 0.002 sec
+Testcase: threeLexicographicElements took 0.002 sec
+Testcase: manyElements took 0.376 sec

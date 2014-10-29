@@ -240,7 +240,7 @@ public class Arrays {
 
         do {
             parent=parent(parent);
-            maxHeapify(maxHeap, parent, sizeHeap -1);
+            maxHeapify(maxHeap, parent, sizeHeap);
         } while (parent!=0);
 
 

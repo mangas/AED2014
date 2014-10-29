@@ -1,0 +1,11 @@
+Testsuite: serie1.HIndexTest
+Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.09 sec
+
+Testcase: hIndex_WithGreaterElementsAndWithEquals took 0.006 sec
+Testcase: hIndex_WithGreaterElements took 0.001 sec
+Testcase: hIndex_WithSmallerElementsAndWithEquals took 0 sec
+Testcase: hIndex_On_An_Array took 0 sec
+Testcase: hIndex_OnEmptyArray took 0.001 sec
+Testcase: hIndex_SingleElementArray took 0 sec
+Testcase: hIndex_WithSmallerElementsOrdered took 0 sec
+Testcase: hIndex_WithSmallerElementsUnOrdered took 0 sec
