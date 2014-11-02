@@ -6,3 +6,5 @@
 /target/
 /.idea/
 /out/
+
+.idea/workspace.xml
