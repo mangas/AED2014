@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 public class TweetParserTest {
 
     @Test
-    public void tweetParsing() {
+    public void parseOne() {
         TweetParser tp = new TweetParser();
         final String TWEET_LINE = "{\"created_at\": \"2014-07-06T18:08:21\", \"hashtags\": [\"WorldCup\"], \"id\": 485847737653813248, \"uid\": 2563200427}";
 

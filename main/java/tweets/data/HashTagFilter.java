@@ -16,21 +16,8 @@ public class HashTagFilter extends AbstractFieldFilter {
 
     @Override
     public boolean filter(Tweet t) {
-<<<<<<< HEAD
-
-        for (int i=0;i<this.hashtags.length;i++) {
-            boolean found=false;
-
-            for (String s : t.getHashtags().getHashtags())
-                if (s.equalsIgnoreCase(hashtags[i]))
-                    found=true;
-
-            if (!found) return false;
-        }
 
         return true;
-=======
-        return this.hashtags.containsTags(t.getHashtags());
->>>>>>> FETCH_HEAD
+
     }
 }
