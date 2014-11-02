@@ -2,9 +2,23 @@
 /bin/
 
 *.project
+<<<<<<< HEAD
 
 /target/
 /.idea/
 /out/
 
 .idea/workspace.xml
+=======
+*.iml
+
+.idea/
+.idea/*
+>>>>>>> FETCH_HEAD
+
+.idea/*
+
+*.xml
+
+*.iml
+
