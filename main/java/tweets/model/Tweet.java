@@ -1,5 +1,7 @@
 package tweets.model;
 
+import tweets.data.FieldFilter;
+
 /**
  * Created by fa on 26/10/14.
  */
@@ -41,6 +43,16 @@ public class Tweet {
     public void setId(long id) {
         this.id = id;
     }
+
+	public boolean hasHashTag(FieldFilter fieldFilter) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean isEndOfFile() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 
 }
