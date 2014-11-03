@@ -42,7 +42,7 @@ public class CommandLine {
 			cmd = getArgument(fullcmd,0);
 			
 			
-			switch(cmd){
+			switch(cmd) {
 			case "exit": loop = false;
 						break;		
 						

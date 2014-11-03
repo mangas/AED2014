@@ -1,16 +1,16 @@
 package tweets.data;
 
-import java.util.ArrayList;
-
 import tweets.model.Tweet;
 
+import java.util.ArrayList;
+
 /**
- * esta classe é o engine de filtragem.
+ * esta classe ï¿½ o engine de filtragem.
  * pede ao parser novos tweets, filtra-os usando field filters.
  * 
- * Uso: 1º Construir uma instancia com o ficheiro fonte de tweets como argumento
- * 		2º adicionar os filtros com o metodo addFilter
- * 		3º filtrar com o filterOne ou com o FilterAll
+ * Uso: 1ï¿½ Construir uma instancia com o ficheiro fonte de tweets como argumento
+ * 		2ï¿½ adicionar os filtros com o metodo addFilter
+ * 		3ï¿½ filtrar com o filterOne ou com o FilterAll
  */
 public class Filter {
 
@@ -33,7 +33,7 @@ public class Filter {
 	}
 
 	/**
-	 * Adiciona filtros à lista de filtros Arraylist
+	 * Adiciona filtros ï¿½ lista de filtros Arraylist
 	 */
 	public void addFilter(FieldFilter f){
 		filterAL.add(f);
@@ -41,11 +41,17 @@ public class Filter {
 	
 	/**
 	 * O metodo Parser.parseTweet() devolve o proximo Tweet
-	 * É feito um for para validar se esse tweet contem todas as HashTags.
-	 * Retorna o tweet se sim, null se não encontrada correspondencia. 
+	 * ï¿½ feito um for para validar se esse tweet contem todas as HashTags.
+	 * Retorna o tweet se sim, null se nï¿½o encontrada correspondencia. 
 	 * Nota: pressupoe que recebe null se o ficheiro chegar ao fim.
-	 */
+     *
+     **/
+
+
+    /*
+
 	public Tweet filterOne(){
+
 		Tweet tw = null ;
 		boolean match = false;
 		int matchCount = 0;
@@ -62,6 +68,41 @@ public class Filter {
 		if (match) return tw;
 		else return null;
 	}
+	*/
+
+    /**
+     * Helper method to encapsulate the filtering process itself
+     *
+     * @param t tweet to filter
+     * @return wether tweet passes through filters
+     */
+    private boolean filter(Tweet t) {
+        for (FieldFilter f : filterAL)
+            if (!f.filter(t))
+                return false;
+
+        return true;
+    }
+
+    /**
+     * Always returns a filtered tweet if there is one
+     *
+     * @return Tweet
+     */
+    public Tweet filterOne() {
+
+
+        Tweet tw = null;
+
+        do {
+            tw = ps.parseTweet();
+            //if there are no more tweets parseTweet would return null
+            if (tw == null)
+                return null;
+        } while (!filter(tw));
+
+        return tw;
+    }
 	
 	/**
 	 * Filtra todos os elementos do ficheiro fonte e retorna um array de tweets

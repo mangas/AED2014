@@ -1,23 +1,28 @@
 package tweets.model;
 
-import tweets.data.FieldFilter;
-
 /**
  * Created by fa on 26/10/14.
  */
 public class Tweet {
 
-    private long seconds;
+    private long time;
     private HashTags hashtags;
-    private long uid;
-    private long id;
+    private String uid;
+    private String id;
 
-    public long getSeconds() {
-        return seconds;
+    public Tweet(long time, HashTags hashtags, String uid, String id) {
+        this.time = time;
+        this.hashtags = hashtags;
+        this.uid = uid;
+        this.id = id;
     }
 
-    public void setSeconds(long seconds) {
-        this.seconds = seconds;
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
     }
 
     public HashTags getHashtags() {
@@ -28,31 +33,21 @@ public class Tweet {
         this.hashtags = hashtags;
     }
 
-    public long getUid() {
+    public String getUid() {
         return uid;
     }
 
-    public void setUid(long uid) {
+    public void setUid(String uid) {
         this.uid = uid;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
-
-	public boolean hasHashTag(FieldFilter fieldFilter) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean isEndOfFile() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 
 }
