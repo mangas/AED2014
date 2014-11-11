@@ -1,5 +1,6 @@
 package tweets.data;
 
+import tweets.model.HashTags;
 import tweets.model.Tweet;
 
 import java.util.ArrayList;
@@ -115,9 +116,9 @@ public class Filter {
 		return (Tweet[]) tweets.toArray();
 	}
 
-//	public HashTags getHashTags(String s){
-//		return Parser.getHashTags(s);
-//	}
+	public HashTags getHashTags() {
+        return ps.parseHashTag();
+	}
 
 
 }

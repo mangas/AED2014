@@ -47,4 +47,12 @@ public class HashTags {
         return true;
     }
 
+    public boolean containsAny(HashTags tags) {
+
+        for (String s : tags.getHashtags())
+            if (contains(s))
+                return true;
+        return false;
+    }
+
 }
